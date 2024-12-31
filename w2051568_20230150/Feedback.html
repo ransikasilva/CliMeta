@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Feedback Form</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="templatestyle.css">
+</head>
+<body>
+<header>
+    <img src="Untitled-1-removebg-preview.png" alt="My Logo" class="logo">
+</header>
+
+<nav>
+  <ul>
+      <li><a href="Home.html">Home</a></li>
+      <li><a href="">Shop</a></li>
+      <li><a href="#">User Profile</a></li>
+      <li><a href="Feedback.html" class="active">Feedback</a></li>
+      <li><a href="#">About Us</a></li> 
+      
+  </ul>
+</nav>
+<main>
+    <h1>Feedback Form</h1>
+    <h3>Required fields*</h3>
+  <form name="feedbackForm" onsubmit="return false;">
+    <label for="feedbackName">*Enter your name:</label><br>
+    <input type="text" id="feedbackName" name="feedbackName" placeholder="Enter your name " required><br><br>
+    
+    <label for="feedbackEmail">*Enter your email:</label><br>
+    <input type="email" id="feedbackEmail" name="feedbackEmail" placeholder="Enter your email" required><br><br>
+    
+    <label>Was this your first time visiting?</label><br>
+    <input type="radio" name="firstTime" value="yes" required> Yes
+    <input type="radio" name="firstTime" value="no"> No<br><br>
+    
+    <label>Was this website informative and easy to navigate through?</label><br>
+    <input type="radio" id="inforYes" name="informat" value="yes" required onclick="adjustImprovementsRequirement()"> Yes
+    <input type="radio" name="informat" value="no"> No<br><br>
+    
+    <label>*If "No", suggest any improvements for the future:</label><br>
+    <textarea id="feedbackImprovements" name="feedbackImprovements" rows="4" cols="50" placeholder="Suggest your improvements" required></textarea><br><br>
+    
+    <label for="rating1">How satisfied are you with our services? Choose from 1 to 10, with 1 being "Not satisfied at all!" and 10 being "Extremely satisfied!"</label><br>
+    <div class="rating-container">
+      <input type="radio" id="rating1" name="feedbackRating" value="1" required>
+      <label for="rating1">1</label>
+
+      <input type="radio" id="rating2" name="feedbackRating" value="2">
+      <label for="rating2">2</label>
+
+      <input type="radio" id="rating3" name="feedbackRating" value="3">
+      <label for="rating3">3</label>
+
+      <input type="radio" id="rating4" name="feedbackRating" value="4">
+      <label for="rating4">4</label>
+
+      <input type="radio" id="rating5" name="feedbackRating" value="5">
+      <label for="rating5">5</label>
+
+      <input type="radio" id="rating6" name="feedbackRating" value="6">
+      <label for="rating6">6</label>
+
+      <input type="radio" id="rating7" name="feedbackRating" value="7">
+      <label for="rating7">7</label>
+
+      <input type="radio" id="rating8" name="feedbackRating" value="8">
+      <label for="rating8">8</label>
+
+      <input type="radio" id="rating9" name="feedbackRating" value="9">
+      <label for="rating9">9</label>
+
+      <input type="radio" id="rating10" name="feedbackRating" value="10">
+      <label for="rating10">10</label>
+    </div>
+
+
+    
+    <label>Would you recommend our services?</label><br>
+    <input type="radio" name="feedbackRecommend" value="yes" required> Yes
+    <input type="radio" name="feedbackRecommend" value="no"> No<br><br>
+    
+    <label>*Would you like to receive updates about the website and any offers?</label><br>
+    <select id="feedbackUpdates" name="feedbackUpdates" required>
+      <option value="">Select an option</option>
+      <option value="yes">Yes, via Email</option>
+      <option value="no">No</option>
+    </select><br><br>
+    
+    <label>Do you have any additional questions or requests?</label><br>
+    <textarea id="feedbackAdditional" name="feedbackAdditional" rows="4" cols="50" placeholder="Enter your questions and requests"></textarea><br><br>
+
+    
+    <input type="submit" value="Submit" onclick="previewFeedback()">
+  </form>
+</main>
+
+<footer class="footertext">
+  <div class="pageeditor">
+     <p><a href="ransikaeditor.html" target="_blank">Page Editor</a></p>
+  </div>
+  <div class="general-info">
+      <p>© 2024 CLIMETA</p>
+
+  </div>
+</footer>
+
+<div id="myModal" class="modal"><!--Source:https://www.youtube.com/watch?v=iE_6pQ3RlZU -->
+  <div class="modal-content">
+    <span class="close" onclick="cancelSubmission()">&times;</span>
+    <div id="modalContent"></div>
+    <div id="submitConfirmation" style="display:none;">
+      <p>Do you want to submit this feedback?</p>
+      <button class="okay" onclick="submitFeedback()">Submit</button>
+      <button class="cancel" onclick="cancelSubmission()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="thankYouModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeThankYouModal()">&times;</span>
+    <p>Thank you for your feedback!</p>
+  </div>
+</div>
+
+<script src="feedbackformjs.js"></script>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+</body>
+</html>
